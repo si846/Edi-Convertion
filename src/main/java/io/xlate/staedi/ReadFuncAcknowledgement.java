@@ -23,8 +23,7 @@ public class ReadFuncAcknowledgement {
         JsonObject result = null;
 
         // Any InputStream can be used to create an `EDIStreamReader`
-        try (InputStream stream = new FileInputStream(
-                "C:/Users/Siddayya/Downloads/staedi/target/test-classes/io/xlate/simple997.edi");
+        try (InputStream stream = new FileInputStream("C:/Users/Siddayya/Downloads/staedi/target/test-classes/io/xlate/simple997.edi");
                 EDIStreamReader reader = factory.createEDIStreamReader(stream)) {
 
             EDIStreamEvent event;
@@ -150,12 +149,6 @@ public class ReadFuncAcknowledgement {
                 }
             }
         }
-
-        // Json.createGeneratorFactory(Collections.singletonMap(JsonGenerator.PRETTY_PRINTING,
-        // "true"))
-        // .createGenerator(System.out)
-        // .write(result)
-        // .close();
         JsonWriter jsonWriter = Json.createWriter(System.out);
         jsonWriter.writeObject(result);
         jsonWriter.close();
